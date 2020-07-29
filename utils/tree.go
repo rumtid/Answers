@@ -26,7 +26,7 @@ func construct(s string) (*TreeNode, string) {
 		return nil, s[2:]
 	}
 	i := 1
-	for ; s[i] >= '0' && s[i] <= '9'; i++ {
+	for ; s[i] == '-' || (s[i] >= '0' && s[i] <= '9'); i++ {
 	}
 	root := new(TreeNode)
 	root.Val, _ = strconv.Atoi(s[1:i])

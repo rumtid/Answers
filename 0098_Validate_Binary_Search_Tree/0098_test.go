@@ -1,8 +1,9 @@
 package main
 
 import (
-	"../utils"
 	"fmt"
+
+	"github.com/rumtid/leetcode/utils"
 )
 
 func Example_case1() {
