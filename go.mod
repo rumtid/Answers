@@ -1,3 +1,3 @@
 module github.com/rumtid/leetcode
 
-go 1.14
+go 1.15
