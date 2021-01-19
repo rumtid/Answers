@@ -1,36 +1,31 @@
 package leetcode
 
 func longestPalindrome(s string) string {
-	var longest string
-	var i, j, p, q, t int
+	var t string
 
-	for i, j = 0, len(s)-1; i < len(s) && j-i+1 > len(longest); i++ {
-		p, q, t = i, j, i
-		for p < q {
-			if s[p] != s[q] {
-				t = p + 1
+	for lo, hi := 0, len(s)-1; lo < len(s) && hi-lo+1 > len(t); lo++ {
+		i, j, k := lo, hi, lo
+		for ; i < j; i, j = i+1, j-1 {
+			if s[i] != s[j] {
+				k = i + 1
 			}
-			p++
-			q--
 		}
-		if j-t-t+i+1 > len(longest) {
-			longest = s[t : j-t+i+1]
+		if (hi-lo+1)-(k-lo)*2 > len(t) {
+			t = s[k : hi-(k-lo)+1]
 		}
 	}
 
-	for i, j = 0, len(s)-1; j >= 0 && j-i+1 > len(longest); j-- {
-		p, q, t = i, j, i
-		for p < q {
-			if s[p] != s[q] {
-				t = p + 1
+	for lo, hi := 0, len(s)-1; hi >= 0 && hi-lo+1 > len(t); hi-- {
+		i, j, k := lo, hi, lo
+		for ; i < j; i, j = i+1, j-1 {
+			if s[i] != s[j] {
+				k = i + 1
 			}
-			p++
-			q--
 		}
-		if j-t-t+i+1 > len(longest) {
-			longest = s[t : j-t+i+1]
+		if (hi-lo+1)-(k-lo)*2 > len(t) {
+			t = s[k : hi-(k-lo)+1]
 		}
 	}
 
-	return longest
+	return t
 }

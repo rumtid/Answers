@@ -4,9 +4,9 @@ import "fmt"
 
 func Example_case1() {
 	ans := longestPalindrome("babad")
-	fmt.Print(ans)
+	fmt.Print(ans == "bab" || ans == "aba")
 	// Output:
-	// aba
+	// true
 }
 
 func Example_case2() {
